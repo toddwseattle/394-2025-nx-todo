@@ -1,0 +1,8 @@
+{
+  "name": "@cs394-vite-nx-template/my-test-app",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "name": "my-test-app"
+  }
+}
