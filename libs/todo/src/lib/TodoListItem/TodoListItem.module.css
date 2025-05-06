@@ -1,0 +1,27 @@
+.todoListItem {
+  border-bottom: 1px solid #eee;
+  padding: 0.5rem;
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.title {
+  flex: 1;
+}
+
+.priority {
+  width: 80px;
+}
+
+.dueDate {
+  width: 120px;
+}
+
+.details {
+  margin-top: 1rem;
+  margin-left: 2rem;
+}

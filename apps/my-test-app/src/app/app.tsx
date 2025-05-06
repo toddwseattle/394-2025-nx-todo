@@ -1,10 +1,11 @@
 // Uncomment this line to use CSS modules
 import styles from './app.module.css';
-import NxWelcome from './nx-welcome';
 import { useState } from 'react';
-
+import { TodoInterface, TodoListItem } from '@cs394-vite-nx-template/todo';
+import { sampleTodos } from './sampleTodos';
 export function App() {
   const [showAddTodo, setShowAddTodo] = useState(false);
+  const [todos, setTodos] = useState<TodoInterface[]>(sampleTodos);
 
   return (
     <div className={styles.container}>
@@ -13,8 +14,19 @@ export function App() {
       </header>
 
       <main className={styles.todoList}>
-        {/* Todo list component will go here */}
-        <div>Todo items will appear here</div>
+        {todos.map((todo) => (
+          <TodoListItem
+            key={todo.id}
+            todo={todo}
+            onTodoChange={(updatedTodo) => {
+              setTodos((prevTodos) =>
+                prevTodos.map((t) =>
+                  t.id === updatedTodo.id ? updatedTodo : t
+                )
+              );
+            }}
+          />
+        ))}
       </main>
 
       <button className={styles.addButton} onClick={() => setShowAddTodo(true)}>
